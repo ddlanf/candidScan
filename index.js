@@ -3,6 +3,7 @@
 const searchURL = 'https://api.github.com/users/';
 
 function displayResults(responseJson, userName){
+  console.log(responseJson);
     $('#results-list').empty();
     $('#results-list').append(`
     <tr>
@@ -14,7 +15,7 @@ function displayResults(responseJson, userName){
         $('#results-list').append(`
         <tr>
         <td>${responseJson[i].full_name.replace(`${userName + '/'}`, '')}</td>
-        <td>${responseJson[i].url}</td>
+        <td><a href="${responseJson[i].html_url}">${responseJson[i].html_url}<a/></td>
         </tr>
         `);
     }
